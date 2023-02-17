@@ -52,15 +52,17 @@ public class FlightController {
             @PathVariable Long id,
             @RequestParam Long passengerId
             ){
-        Passenger passenger = passengerService.getPassengerById(passengerId).get();
-        Flight updateFlight = flightService.addPassengerToFlight(passenger, id);
-        return new ResponseEntity<>(updateFlight, HttpStatus.CREATED);
+        Flight updatedFlight = flightService.addPassengerToFlight(id, passengerId);
+        return new ResponseEntity<>(updatedFlight, HttpStatus.OK);
+
     }
-//
-//    // Cancel flight
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity cancelFlight(){
-//
-//    }
+
+    // Cancel flight
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity cancelFlight(@PathVariable long id){
+        flightService.deleteFlight(id);
+        return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+
+    }
 
 }

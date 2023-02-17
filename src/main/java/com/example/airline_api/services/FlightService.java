@@ -39,10 +39,18 @@ public class FlightService {
 
 
 
-    public Flight addPassengerToFlight(Passenger passenger, Long id){
-        Flight flightToUpdate = flightRepository.findById(id).get();
-        flightToUpdate.addPassenger(passenger);
+    public Flight addPassengerToFlight(Long flightId, Long passengerId){
+        Flight flightToUpdate = flightRepository.findById(flightId).get();
+        Optional<Passenger> passenger = passengerService.getPassengerById(passengerId);
+        List<Passenger> passengers = flightToUpdate.getPassengers();
+        passengers.add(passenger.get());
+        flightToUpdate.setPassengers(passengers);
+        flightRepository.save(flightToUpdate);
         return flightToUpdate;
+    }
+
+    public void deleteFlight(long id){
+        flightRepository.deleteById(id);
     }
 
 
