@@ -53,6 +53,10 @@ public class FlightService {
         flightRepository.deleteById(id);
     }
 
+    public List<Flight> findFlightsByDestination(String destination){
+        return flightRepository.findByDestination(destination);
+    }
+
 
 
 
