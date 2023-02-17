@@ -19,13 +19,13 @@ public class Flight {
     private String destination;
     @Column
     private int capacity;
-//    @Column
-//    private LocalDateTime departureDateTime;
+    @Column
+    private LocalDateTime departureDateTime;
 
-    @Column
-    private String departureDate;
-    @Column
-    private String departureTime;
+//    @Column
+//    private String departureDate;
+//    @Column
+//    private String departureTime;
 
     @JsonIgnoreProperties({"flights"})
     @ManyToMany
@@ -36,11 +36,10 @@ public class Flight {
     )
     private List<Passenger> passengers;
 
-    public Flight(String destination, int capacity, String departureDate, String departureTime) {
+    public Flight(String destination, int capacity, LocalDateTime departureDateTime) {
         this.destination = destination;
         this.capacity = capacity;
-        this.departureDate = departureDate;
-        this.departureTime = departureTime;
+        this.departureDateTime = departureDateTime;
         this.passengers = new ArrayList<>();
     }
 
@@ -71,13 +70,13 @@ public class Flight {
         this.capacity = capacity;
     }
 
-//    public LocalDateTime getDepartureDateTime() {
-//        return departureDateTime;
-//    }
-//
-//    public void setDepartureDateTime(LocalDateTime departureDateTime) {
-//        this.departureDateTime = departureDateTime;
-//    }
+    public LocalDateTime getDepartureDateTime() {
+        return departureDateTime;
+    }
+
+    public void setDepartureDateTime(LocalDateTime departureDateTime) {
+        this.departureDateTime = departureDateTime;
+    }
 
     public List<Passenger> getPassengers() {
         return passengers;
@@ -91,19 +90,19 @@ public class Flight {
         this.passengers = passengers;
     }
 
-    public String getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(String departureDate) {
-        this.departureDate = departureDate;
-    }
-
-    public String getDepartureTime() {
-        return departureTime;
-    }
-
-    public void setDepartureTime(String departureTime) {
-        this.departureTime = departureTime;
-    }
+//    public String getDepartureDate() {
+//        return departureDate;
+//    }
+//
+//    public void setDepartureDate(String departureDate) {
+//        this.departureDate = departureDate;
+//    }
+//
+//    public String getDepartureTime() {
+//        return departureTime;
+//    }
+//
+//    public void setDepartureTime(String departureTime) {
+//        this.departureTime = departureTime;
+//    }
 }

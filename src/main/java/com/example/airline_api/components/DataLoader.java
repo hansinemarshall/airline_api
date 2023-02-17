@@ -27,19 +27,19 @@ public class DataLoader implements ApplicationRunner {
 
         // FLIGHTS
 
-        Flight DEL = new Flight("Delhi",200,"23/02/23", "10:00");
+        Flight DEL = new Flight("Delhi",200,LocalDateTime.parse("2023-02-18T10:00:00"));
         flightRepository.save(DEL);
 
-        Flight MIA = new Flight("Miami",250,"20/02/23", "06:00");
+        Flight MIA = new Flight("Miami",250,LocalDateTime.parse("2023-02-19T06:00:00"));
         flightRepository.save(MIA);
 
-        Flight LGW = new Flight("London",300,"19/02/23", "13:00");
+        Flight LGW = new Flight("London",300,LocalDateTime.parse("2023-02-20T09:00:00"));
         flightRepository.save(DEL);
 
-        Flight CUN = new Flight("Cancun",100,"18/02/23", "20:00");
+        Flight CUN = new Flight("Cancun",100,LocalDateTime.parse("2023-02-18T20:00:00"));
         flightRepository.save(CUN);
 
-        Flight privateJet = new Flight("Secret", 1, "17/03/23","05:00");
+        Flight privateJet = new Flight("Secret", 1,LocalDateTime.parse("2023-02-23T13:00:00"));
         flightRepository.save(privateJet);
 
         // PASSENGERS
